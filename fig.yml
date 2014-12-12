@@ -1,0 +1,14 @@
+postgres:
+    image: orchardup/postgresql:9.3
+    environment:
+        POSTGRESQL_USER: SuperAwesomeUser
+        POSTGRESQL_PASS: SuperAwesomePass
+        POSTGRESQL_DB: SuperAwesomeDB
+web:
+    build: .
+    links:
+        - postgres
+    command: /sbin/my_init --enable-insecure-key
+    ports:
+        - "8001:80"
+        - "2201:22"
