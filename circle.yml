@@ -1,0 +1,18 @@
+machine:
+    services:
+        - docker
+
+dependencies:
+    override:
+        - ci/credentials.sh
+        - ci/build.sh
+
+test:
+    override:
+        - ci/test.sh
+
+deployment:
+    deploy: # arbitrary name for this deployment
+        branch: master
+        commands:
+            - ci/deploy.sh
