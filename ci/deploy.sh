@@ -15,7 +15,7 @@ cat > ~/.dockercfg <<EOF2
 EOF2
 
 # Data directories
-mkdir -p /data/postgresql
+sudo mkdir -p /data/postgresql
 
 # Dependencies
 sudo apt-get update -qq
