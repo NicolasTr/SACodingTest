@@ -7,7 +7,7 @@ RUN apt-get update \
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 RUN apt-get update \
-    && apt-get install -y nginx python-pip ruby-dev git \
+    && apt-get install -y nginx python-pip ruby-dev git imagemagick \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD backend/packages.txt /tmp/packages.txt
@@ -40,6 +40,11 @@ ADD docker /
 ADD frontend/app /srv/frontend/app
 ADD frontend/Gruntfile.js /srv/frontend/Gruntfile.js
 ADD frontend/.jshintrc /srv/frontend/.jshintrc
+
+ADD frontend/vendor /srv/frontend/vendor
+ADD frontend/generate_images.sh /srv/frontend/generate_images.sh
+RUN cd /srv/frontend/ \
+    && ./generate_images.sh
 
 RUN cd /srv/frontend/ \
     && NODE_ENV=production node_modules/.bin/grunt build
