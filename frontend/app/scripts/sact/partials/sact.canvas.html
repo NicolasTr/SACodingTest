@@ -17,7 +17,7 @@
         <span class="scene-help">Flick between your scenes here:</span>
         <a ng-repeat="scene in scenes"
               class="scene-tab"
-              ng-class="{active: $index == currentScene}"
+              ng-class="{active: $index == currentSceneIndex}"
               ng-click="selectScene($index)">
             Scene {{ $index + 1 }}
         </a>
@@ -29,8 +29,10 @@
                      max="3"></scrollable-list>
     <scrollable-list class="select-characters" items="characters" max="3"></scrollable-list>
     <scene class="canvas"
-           scene="scenes[currentScene]"></scene>
-    <textarea class="select-text" type="text"></textarea>
+           scene="currentScene"></scene>
+    <textarea class="select-text"
+              ng-model="currentScene.description"
+              type="text"></textarea>
 </div>
 
 <form class="form-signin" role="form" ng-if="false">

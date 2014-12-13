@@ -8,13 +8,14 @@ angular.module('sact').controller('CanvasController', function($scope) {
     ]
     $scope.selectScene = function(index) {
         console.log('selectScene', index);
-        $scope.currentScene = index;
+        $scope.currentSceneIndex = index;
+        $scope.currentScene = $scope.scenes[index];
     }
     $scope.selectScene(0);
 
     $scope.selectBackground = function(background) {
         console.log('selectBackground', background.id);
-        $scope.scenes[$scope.currentScene].background = background;
+        $scope.currentScene.background = background;
     }
     $scope.selectBackground(0);
 
