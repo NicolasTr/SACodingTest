@@ -130,7 +130,7 @@ $appWidth: 940px;
 
 .select-characters {
     position: relative;
-    top: 250px;
+    top: 275px;
     left: 160px;
 
     div, img {
@@ -145,9 +145,9 @@ $appWidth: 940px;
 }
 
 .select-text {
-    position: relative;
-    top: 279px;
-    left: 300px;
+    position: absolute;
+    top: 489px;
+    left: 516px;
     width: 339px;
     height: 70px;
     background-color: transparent;
