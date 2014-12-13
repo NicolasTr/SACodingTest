@@ -36,15 +36,15 @@ RUN cd /srv/frontend/ \
     && node_modules/.bin/bower install --allow-root \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD docker /
-ADD frontend/app /srv/frontend/app
-ADD frontend/Gruntfile.js /srv/frontend/Gruntfile.js
-ADD frontend/.jshintrc /srv/frontend/.jshintrc
-
 ADD frontend/vendor /srv/frontend/vendor
 ADD frontend/generate_images.sh /srv/frontend/generate_images.sh
 RUN cd /srv/frontend/ \
     && ./generate_images.sh
+
+ADD docker /
+ADD frontend/app /srv/frontend/app
+ADD frontend/Gruntfile.js /srv/frontend/Gruntfile.js
+ADD frontend/.jshintrc /srv/frontend/.jshintrc
 
 RUN cd /srv/frontend/ \
     && NODE_ENV=production node_modules/.bin/grunt build
