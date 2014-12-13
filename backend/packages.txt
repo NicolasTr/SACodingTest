@@ -1,0 +1,4 @@
+build-essential
+python-dev
+python-setuptools
+libpq-dev

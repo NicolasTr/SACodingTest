@@ -43,6 +43,9 @@ web:
         - postgres
     ports:
         - "80:80"
+    environment
+        SENTRY_DSN: "${SENTRY_DSN}"
+        DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY}"
 EOF2
 
 sudo fig stop

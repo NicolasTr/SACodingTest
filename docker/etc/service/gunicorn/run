@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+echo "gunicorn - run - waiting"
+env > /srv/app/project/.env
+sleep 5
+
+cd /srv/app/
+python manage.py migrate
+python manage.py create_default_admin_user
+
+echo "gunicorn - run - starting"
+exec gunicorn project.django_wsgi:application --bind 0.0.0.0:8000 2>&1
