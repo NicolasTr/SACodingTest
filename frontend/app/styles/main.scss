@@ -63,3 +63,11 @@ $appWidth: 940px;
         padding-left: 60px;
     }
 }
+
+.form-signin {
+    position: absolute;
+    width: ($appWidth - 300px)/2 + 300px;
+    margin: auto;
+    top: 800px;
+    padding-left: ($appWidth - 300px)/2;
+}
