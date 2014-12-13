@@ -8,6 +8,7 @@ router.register('users', UserViewSet, base_name='users')
 
 urlpatterns = patterns('',
     url(r'^api/', include(router.urls)),
+    url(r'^api/users/auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
 
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
