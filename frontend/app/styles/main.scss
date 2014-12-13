@@ -30,8 +30,15 @@ $appWidth: 940px;
         top: 475px;
     }
 
+    .canvas-description {
+        position: absolute;
+        width: $appWidth;
+        top: 625px;
+        text-align: right;
+    }
+
     .canvas-container {
-        position: relative;
+        position: absolute;
         background-image: url("/images/vendor/images/canvasbg.35a0fa2a.png");
         height: 830px;
         width: $appWidth;
