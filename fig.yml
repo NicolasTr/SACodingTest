@@ -4,6 +4,8 @@ postgres:
         POSTGRESQL_USER: SuperAwesomeUser
         POSTGRESQL_PASS: SuperAwesomePass
         POSTGRESQL_DB: SuperAwesomeDB
+    ports:
+        - "15432:5432"
 web:
     build: .
     links:
