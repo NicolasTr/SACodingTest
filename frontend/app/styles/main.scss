@@ -7,3 +7,50 @@ html, body {
     margin: 0px;
     padding: 0px;
 }
+
+$appHeight: 1675px;
+$appWidth: 940px;
+
+.sact-authenticated-canvas, .sact-reference {
+    height: $appHeight;
+    width: $appWidth;
+    margin: auto;
+}
+
+.sact-reference {
+    background-image: url("/images/vendor/microsite-home.77680133.jpg");
+}
+
+.sact-authenticated-canvas {
+    background-image: url("/images/vendor/assets/bg-home.281c75a0.png");
+
+    .canvas-intro {
+        position: absolute;
+        width: $appWidth;
+        top: 475px;
+    }
+
+    .canvas-container {
+        position: absolute;
+        background-image: url("/images/vendor/images/canvasbg.35a0fa2a.png");
+        height: 830px;
+        width: $appWidth;
+        top: 700px;
+
+        .canvas {
+            position: absolute;
+            background-image: url("/images/vendor/images/canvas.6f16fd15.png");
+            height: 328px;
+            width: 680px;
+            top: 130px;
+            left: 180px;
+        }
+    }
+
+    .canvas-outro {
+        position: absolute;
+        width: 520px;
+        top: 1420px;
+        padding-left: 60px;
+    }
+}

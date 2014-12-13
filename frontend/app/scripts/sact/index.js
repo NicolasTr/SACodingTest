@@ -5,12 +5,16 @@ angular.module('sact', [
 ]);
 
 angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/state1');
+    $urlRouterProvider.otherwise('/');
     
     $stateProvider
         .state('sact', {
             templateUrl: 'scripts/sact/partials/sact.html',
             abstract: true
+        })
+        .state('sact.reference', {
+            url: '/reference/',
+            templateUrl: 'scripts/sact/partials/sact.reference.html'
         })
         .state('sact.authenticated', {
             templateUrl: 'scripts/sact/partials/sact.authenticated.html',
