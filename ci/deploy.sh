@@ -31,9 +31,9 @@ cat > fig.yml <<EOF2
 postgres:
     image: orchardup/postgresql:9.3
     environment:
-        POSTGRESQL_USER: SuperAwesomeUser
+        POSTGRESQL_USER: superawesomeuser
         POSTGRESQL_PASS: ${POSTGRESQL_PASS}
-        POSTGRESQL_DB: SuperAwesomeDB
+        POSTGRESQL_DB: superawesomedb
     volumes:
         - /data/postgresql:/var/lib/postgresql
 

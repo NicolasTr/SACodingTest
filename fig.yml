@@ -1,9 +1,9 @@
 postgres:
     image: orchardup/postgresql:9.3
     environment:
-        POSTGRESQL_USER: SuperAwesomeUser
-        POSTGRESQL_PASS: SuperAwesomePass
-        POSTGRESQL_DB: SuperAwesomeDB
+        POSTGRESQL_USER: superawesomeuser
+        POSTGRESQL_PASS: superawesomepass
+        POSTGRESQL_DB: superawesomedb
     ports:
         - "15432:5432"
 web:
