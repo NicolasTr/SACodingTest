@@ -10,7 +10,7 @@ angular.module('sact').directive('scene', function() {
             var update = function() {
                 var url;
                 if(!scope.scene.background) {
-                    url = 'images/vendor/images/canvas.6f16fd15.png';
+                    url = '';
                 } else {
                     url = scope.scene.background.url;
                 }
