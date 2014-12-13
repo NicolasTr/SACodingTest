@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'apps.canvas',
 )
 
-GRAPPELLI_ADMIN_TITLE = "SA Coding Test"
+GRAPPELLI_ADMIN_TITLE = "SA Coding Test Admin"
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
