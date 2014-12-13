@@ -290,6 +290,7 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
+
     imagemin: {
       dist: {
         files: [{
@@ -470,7 +471,7 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
+    //'filerev',
     'usemin',
     'htmlmin'
   ]);
