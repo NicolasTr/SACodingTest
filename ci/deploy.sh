@@ -38,7 +38,7 @@ postgres:
         - /data/postgresql:/var/lib/postgresql
 
 web:
-    image: quay.io/nicolastr11/sact
+    image: quay.io/nicolastr11/sact:master
     links:
         - postgres
     ports:
