@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 from apps.user.views import UserViewSet
 
 router = DefaultRouter()
+router.include_root_view = False
 router.register('users', UserViewSet, base_name='users')
 
 urlpatterns = patterns('',
