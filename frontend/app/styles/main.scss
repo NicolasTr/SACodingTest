@@ -8,10 +8,11 @@ html, body {
     padding: 0px;
 }
 
-$appHeight: 1675px;
+$menuSize: 60px;
+$appHeight: 1675px - $menuSize;
 $appWidth: 940px;
 
-.sact-authenticated-canvas, .sact-reference {
+.sact-authenticated-canvas, .sact-reference, .main-menu-container {
     height: $appHeight;
     width: $appWidth;
     display: block;
@@ -24,6 +25,7 @@ $appWidth: 940px;
 
 .sact-authenticated-canvas {
     background-image: url("/images/vendor/assets/bg-home.281c75a0.png");
+    background-position: 0 (-$menuSize);
 
     .canvas-intro {
         position: absolute;
@@ -43,7 +45,7 @@ $appWidth: 940px;
         background-image: url("/images/vendor/images/canvasbg.35a0fa2a.png");
         height: 830px;
         width: $appWidth;
-        top: 710px;
+        top: 710px - $menuSize;
         left: 15px;
 
         .canvas {
@@ -70,4 +72,43 @@ $appWidth: 940px;
     margin: auto;
     top: 800px;
     padding-left: ($appWidth - 300px)/2;
+}
+
+.main-menu-container {
+    height: $menuSize;
+    background-image: url("/images/vendor/assets/bg-home.281c75a0.png");
+    display: block;
+    margin: auto;
+
+    .main-menu {
+        display: block;
+        margin: auto;
+        top: 0px;
+        //text-align: center;
+        padding-top: 12px;
+
+        a {
+            text-transform: uppercase;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        a:first-child {
+            margin-left: 240px;
+            margin-right: 33px;
+        }
+        a:last-child {
+            margin-left: 25px;
+        }
+
+        a.active {
+            color: #f6b5b3;
+        }
+
+        a:hover {
+            color: #dd9c9a;
+        }
+    }
 }
