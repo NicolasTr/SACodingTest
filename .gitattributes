@@ -1,3 +1,4 @@
 insecure_key binary
 favicon.ico binary
 *.png binary
+frontend/vendor/* binary
