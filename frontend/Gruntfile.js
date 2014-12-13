@@ -364,7 +364,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'scripts/**/*.html',
-            'images/{,**/}*.{webp}',
+            '{,**/}*.{webp,png,jpg}',
             'fonts/*'
           ]
         }, {
@@ -397,7 +397,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
+        //'imagemin',
         'svgmin'
       ]
     },
