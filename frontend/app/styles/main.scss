@@ -154,3 +154,35 @@ $appWidth: 940px;
     border: 0px;
     resize: none;
 }
+
+.select-scene {
+    position: absolute;
+    top: 110px;
+    right: 86px;
+
+    .scene-tab {
+        color: #ff762a;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        background-color: white;
+        padding: 8px;
+        margin-left: 5px;
+        border: 1px;
+    }
+
+    .scene-tab:hover {
+        color: #cd3142;
+        background-color: white;
+        text-decoration: none;
+    }
+
+    .scene-tab.active {
+        background-color: #c52646;
+        color: white;
+    }
+}
+
+

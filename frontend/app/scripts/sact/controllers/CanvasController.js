@@ -1,5 +1,17 @@
 angular.module('sact').controller('CanvasController', function($scope) {
 
+    $scope.scenes = [
+        {},
+        {},
+        {},
+        {}
+    ]
+    $scope.selectScene = function(index) {
+        console.log('index', index);
+        $scope.currentScene = index;
+    }
+    $scope.selectScene(0);
+
     $scope.backgrounds = [
         {id: 1, url: 'images/backgrounds/1.jpg'},
         {id: 2, url: 'images/backgrounds/2.jpg'},
