@@ -416,7 +416,9 @@ module.exports = function (grunt) {
                 'app/scripts/app.js',
                 'app/scripts/*/index.js',
                 'app/scripts/*/**/*Controller.js',
-                'app/scripts/*/**/*Service.js'
+                'app/scripts/*/**/*Service.js',
+                'app/scripts/*/directives/*.js',
+                'app/scripts/*/filters/*.js'
             ],
             html: 'app/index.html',
             without: 'app/'

@@ -1,0 +1,6 @@
+<div>
+    <div ng-click="up()">Up</div>
+    <img ng-repeat="item in items | slice:currentPosition:currentPosition+max"
+         src="{{ item.url }}"/>
+    <div ng-click="down()">Down</div>
+</div>
