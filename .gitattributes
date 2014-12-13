@@ -1,1 +1,3 @@
 insecure_key binary
+favicon.ico binary
+*.png binary
