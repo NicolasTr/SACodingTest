@@ -7,10 +7,16 @@ angular.module('sact').controller('CanvasController', function($scope) {
         {}
     ]
     $scope.selectScene = function(index) {
-        console.log('index', index);
+        console.log('selectScene', index);
         $scope.currentScene = index;
     }
     $scope.selectScene(0);
+
+    $scope.selectBackground = function(background) {
+        console.log('selectBackground', background.id);
+        $scope.scenes[$scope.currentScene].background = background;
+    }
+    $scope.selectBackground(0);
 
     $scope.backgrounds = [
         {id: 1, url: 'images/backgrounds/1.jpg'},

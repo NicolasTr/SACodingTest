@@ -3,7 +3,8 @@ angular.module('sact').directive('scrollableList', function() {
         restrict: 'E',
         scope: {
             items: '=',
-            max: '='
+            max: '=',
+            clickHandler: '='
         },
         templateUrl: 'scripts/sact/partials/directives/scrollable-list.html',
         link: function(scope, element, attrs) {
