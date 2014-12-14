@@ -6,9 +6,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 html, body {
     margin: 0px;
     padding: 0px;
+    overflow-y: scroll;
 }
 
-body.modal-open {
+body, body.modal-open {
     overflow-y: visible !important;
 }
 
@@ -238,4 +239,9 @@ scene {
 
 .modal-footer {
     text-align: center;
+}
+
+.page-content {
+    width: 940px;
+    margin: auto;
 }
