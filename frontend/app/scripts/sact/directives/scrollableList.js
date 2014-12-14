@@ -4,7 +4,9 @@ angular.module('sact').directive('scrollableList', function() {
         scope: {
             items: '=',
             max: '=',
-            clickHandler: '='
+            clickHandler: '=',
+            drag: '=',
+            onDragComplete: '='
         },
         templateUrl: 'scripts/sact/partials/directives/scrollable-list.html',
         link: function(scope, element, attrs) {

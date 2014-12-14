@@ -1,10 +1,10 @@
 angular.module('sact').controller('CanvasController', function($scope) {
 
     $scope.scenes = [
-        {},
-        {},
-        {},
-        {}
+        {description: '', background: {}, content: []},
+        {description: '', background: {}, content: []},
+        {description: '', background: {}, content: []},
+        {description: '', background: {}, content: []}
     ]
     $scope.selectScene = function(index) {
         console.log('selectScene', index);
@@ -18,6 +18,29 @@ angular.module('sact').controller('CanvasController', function($scope) {
         $scope.currentScene.background = background;
     }
     $scope.selectBackground(0);
+
+    $scope.onDragComplete = function(data, event) {
+        console.log('onDragComplete', data, event);
+        var scenePosition = $('#mainScene').offset();
+        console.log('scenePosition', scenePosition);
+        var x = event.x - scenePosition.left;
+        var y = event.y - scenePosition.top;
+        var positionInScene = {
+            x: x > 540 ? 540 : x,
+            y: y > 200 ? 200 : y
+        }
+        console.log('positionInScene', positionInScene);
+        for(var i = 0; i < $scope.currentScene.content.length; i++) {
+            if($scope.currentScene.content[i].character.id == data.id) {
+                $scope.currentScene.content[i].position = positionInScene;
+                return;
+            }
+        }
+        $scope.currentScene.content.push({
+            position: positionInScene,
+            character: data
+        })
+    };
 
     $scope.backgrounds = [
         {id: 1, url: 'images/backgrounds/1.jpg'},

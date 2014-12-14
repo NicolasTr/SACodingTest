@@ -1,7 +1,17 @@
 <div>
     <div ng-click="up()">Up</div>
-    <img ng-repeat="item in items | slice:currentPosition:currentPosition+max"
-         ng-click="clickHandler(item)"
-         src="{{ item.url }}"/>
+    <div ng-repeat="item in items | slice:currentPosition:currentPosition+max">
+        <img
+                ng-click="clickHandler(item)"
+                ng-if="clickHandler"
+                ng-drag="false"
+                src="{{ item.url }}"/>
+        <img
+                ng-if="drag"
+                ng-drag="true"
+                ng-drag-data="item"
+                ng-drag-success="onDragComplete($data, $event)"
+                src="{{ item.url }}"/>
+    </div>
     <div ng-click="down()">Down</div>
 </div>

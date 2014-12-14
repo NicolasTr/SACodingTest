@@ -4,4 +4,13 @@
     <div class="description" ng-if="scene.description">
         {{ scene.description }}
     </div>
+
+    <img ng-repeat="characterWithPosition in scene.content"
+         src="{{ characterWithPosition.character.url }}"
+         ng-style="{
+            'position': 'absolute',
+            'top': characterWithPosition.position.y + 'px',
+            'max-height': '120px',
+            'left': characterWithPosition.position.x + 'px'}"
+        />
 </div>

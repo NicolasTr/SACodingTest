@@ -2,7 +2,8 @@
 
 angular.module('sact', [
     'ui.router',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngDraggable'
 ]);
 
 angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
