@@ -2,11 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -49,11 +51,28 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('description', models.CharField(max_length=255)),
-                ('background', models.ForeignKey(to='canvas.Character')),
+                ('background', models.ForeignKey(to='canvas.Background')),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Story',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('user', models.ForeignKey(related_name=b'stories', to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'verbose_name_plural': 'stories',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='scene',
+            name='story',
+            field=models.ForeignKey(related_name=b'scenes', to='canvas.Story'),
+            preserve_default=True,
         ),
         migrations.AddField(
             model_name='position',
