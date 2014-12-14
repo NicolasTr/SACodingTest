@@ -12,9 +12,14 @@
     scenes for your story! Each scene will give you even more swapits!
 </div>
 
+
+
 <div class="canvas-container">
+    <div class="clear">
+        Clear scene
+    </div>
+
     <div class="select-scene">
-        <span class="scene-help">Flick between your scenes here:</span>
         <a ng-repeat="scene in scenes"
               class="scene-tab"
               ng-class="{active: $index == currentSceneIndex}"

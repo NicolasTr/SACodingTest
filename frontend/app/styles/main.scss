@@ -156,7 +156,7 @@ $appWidth: 940px;
     resize: none;
 }
 
-.scene-tab, .preview {
+.scene-tab, .preview, .clear {
     color: #ff762a;
     cursor: pointer;
     text-decoration: none;
@@ -169,13 +169,13 @@ $appWidth: 940px;
     border: 1px;
 }
 
-.scene-tab:hover, .preview:hover {
+.scene-tab:hover, .preview:hover, .clear:hover {
     color: #cd3142;
     background-color: white;
     text-decoration: none;
 }
 
-.scene-tab.active, .preview.active {
+.scene-tab.active, .preview.active, .clear.active {
     background-color: #c52646;
     color: white;
 }
@@ -209,4 +209,13 @@ $appWidth: 940px;
     left: 700px;
     width: 90px;
     font-size: 22px;
+}
+
+.clear {
+    position: relative;
+    top: 92px;
+    left: 155px;
+    width: 180px;
+    font-size: 22px;
+    background: transparent;
 }
