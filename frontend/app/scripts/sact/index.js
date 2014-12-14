@@ -12,20 +12,20 @@ angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
         .state('reference', {
             url: '/reference/',
-            templateUrl: 'scripts/sact/partials/reference.html'
+            templateUrl: 'scripts/sact/partials/states/reference.html'
         })
         .state('sact', {
-            templateUrl: 'scripts/sact/partials/sact.html',
+            templateUrl: 'scripts/sact/partials/states/sact.html',
             abstract: true
         })
         .state('sact.canvas', {
             url: '/',
-            templateUrl: 'scripts/sact/partials/sact.canvas.html',
+            templateUrl: 'scripts/sact/partials/states/sact.canvas.html',
             controller: 'CanvasController'
         })
         .state('sact.gallery', {
             url: '/gallery/',
-            templateUrl: 'scripts/sact/partials/sact.gallery.html',
+            templateUrl: 'scripts/sact/partials/states/sact.gallery.html',
             controller: 'CanvasController'
         });
 });
