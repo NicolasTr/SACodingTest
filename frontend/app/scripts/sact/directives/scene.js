@@ -2,7 +2,9 @@ angular.module('sact').directive('scene', function() {
     return {
         restrict: 'E',
         scope: {
-            scene: '='
+            scene: '=',
+            drag: '=',
+            onDragComplete: '='
         },
         templateUrl: 'scripts/sact/partials/directives/scene.html',
         link: function(scope, element, attrs) {

@@ -7,6 +7,9 @@
 
     <img ng-repeat="characterWithPosition in scene.content"
          src="{{ characterWithPosition.character.url }}"
+         ng-drag="{{ drag }}"
+         ng-drag-data="characterWithPosition.character"
+         ng-drag-success="onDragComplete($data, $event)"
          ng-style="{
             'position': 'absolute',
             'top': characterWithPosition.position.y + 'px',

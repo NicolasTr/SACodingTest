@@ -35,6 +35,8 @@
     <scene class="canvas"
            id="mainScene"
            ng-drop="true"
+           drag="true"
+           on-drag-complete="onDragComplete"
            scene="currentScene"></scene>
     <textarea class="select-text"
               ng-model="currentScene.description"

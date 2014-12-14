@@ -29,17 +29,18 @@ angular.module('sact').controller('CanvasController', function($scope) {
             x: x > 540 ? 540 : x,
             y: y > 200 ? 200 : y
         }
-        console.log('positionInScene', positionInScene);
-        for(var i = 0; i < $scope.currentScene.content.length; i++) {
+        console.log('positionInScene', positionInScene.x, positionInScene.y);
+
+        var i = 0;
+        for(i = 0; i < $scope.currentScene.content.length; i++) {
             if($scope.currentScene.content[i].character.id == data.id) {
-                $scope.currentScene.content[i].position = positionInScene;
-                return;
+                break;
             }
         }
-        $scope.currentScene.content.push({
+        $scope.currentScene.content[i] = {
             position: positionInScene,
             character: data
-        })
+        };
     };
 
     $scope.backgrounds = [
