@@ -1,4 +1,9 @@
-angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope) {
+angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope, $state, AuthenticationService, NotificationService) {
+
+    if(!AuthenticationService.isAuthenticated()) {
+        NotificationService.error('Canvas', 'Please login to access the canvas');
+        $state.go('sact.login');
+    }
 
     $scope.scenes = [
         {description: '', background: {}, content: []},
@@ -30,11 +35,7 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
 
     $scope.preview = function() {
         if(!isComplete($scope.scenes[0])) {
-            new PNotify({
-                title: 'Submit',
-                text: 'Please complete at least scene 1 to preview and submit',
-                type: 'error'
-            });
+            NotificationService.error('Submit', 'Please complete at least scene 1 to preview and submit');
             return
         }
 

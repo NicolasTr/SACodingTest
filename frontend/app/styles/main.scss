@@ -71,11 +71,8 @@ $appWidth: 940px;
 }
 
 .form-signin {
-    position: absolute;
-    width: ($appWidth - 300px)/2 + 300px;
+    width: 350px;
     margin: auto;
-    top: 800px;
-    padding-left: ($appWidth - 300px)/2;
 }
 
 .main-menu-container {
@@ -251,4 +248,16 @@ scene {
     background: transparent;
     position: absolute;
     top: 70px;
+    text-decoration: none;
+}
+
+.logout:hover {
+    background: transparent;
+}
+
+.page-title {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin: 25px;
 }

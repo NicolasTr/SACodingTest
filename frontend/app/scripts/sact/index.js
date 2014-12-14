@@ -18,6 +18,16 @@ angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
             templateUrl: 'scripts/sact/partials/states/sact.html',
             abstract: true
         })
+        .state('sact.login', {
+            templateUrl: 'scripts/sact/partials/states/sact.login.html',
+            url: '/login/',
+            controller: 'LoginController'
+        })
+        .state('sact.logout', {
+            templateUrl: 'scripts/sact/partials/states/sact.logout.html',
+            url: '/logout/',
+            controller: 'LogoutController'
+        })
         .state('sact.canvas', {
             url: '/',
             templateUrl: 'scripts/sact/partials/states/sact.canvas.html',
@@ -26,7 +36,7 @@ angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
         .state('sact.gallery', {
             url: '/gallery/',
             templateUrl: 'scripts/sact/partials/states/sact.gallery.html',
-            controller: 'CanvasController'
+            controller: 'GalleryController'
         });
 });
 

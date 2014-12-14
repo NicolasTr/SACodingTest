@@ -1,3 +1,6 @@
 <div class="page-content">
-    gallery
+    <a class="logout" ui-sref="sact.logout" ng-if="isAuthenticated">Logout</a>
+    <a class="logout" ui-sref="sact.login" ng-if="!isAuthenticated">Login</a>
+
+    <div class="page-title">Gallery</div>
 </div>

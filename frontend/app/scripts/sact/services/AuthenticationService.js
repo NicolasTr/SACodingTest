@@ -1,11 +1,35 @@
-angular.module('sact').service('AuthenticationService', function(localStorageService) {
+angular.module('sact').service('AuthenticationService', function(localStorageService, $http, $q, $timeout) {
 
     var key = 'authenticationToken';
     var isAuthenticated = function() {
-        return localStorageService.get(key) != null;
+        var value = localStorageService.get(key) != null;
+        console.log('isAuthenticated', value);
+        return value;
+    };
+
+    var login = function(user) {
+        return $http.post(
+            '/api/users/auth/',
+            user
+        ).then(function(response) {
+            localStorageService.set(key, response.data.token);
+        }, function(response) {
+            throw response.data;
+        });
+    };
+
+    var logout = function(user) {
+        var deferred = $q.defer();
+        $timeout(function() {
+            localStorageService.remove(key);
+            deferred.resolve();
+        }, 1500);
+        return deferred.promise;
     };
 
     return {
-        isAuthenticated: isAuthenticated
+        isAuthenticated: isAuthenticated,
+        login: login,
+        logout: logout
     };
 });

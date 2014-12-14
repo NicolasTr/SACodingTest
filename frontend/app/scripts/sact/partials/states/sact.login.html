@@ -1,3 +1,20 @@
 <div class="page-content">
-    login
+    <div class="page-title">Login</div>
+
+    <div class="form-signin">
+        <div class="form-group" ng-class="{'has-error': errors.non_field_errors}">
+            <label class="control-label" ng-if="errors.non_field_errors">{{ errors.non_field_errors[0] }}</label>
+        </div>
+        <div class="form-group" ng-class="{'has-error': errors.username}">
+            <label class="control-label" ng-if="errors.username">{{ errors.username[0] }}</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="user.username">
+        </div>
+        <div class="form-group" ng-class="{'has-error': errors.password}">
+            <label class="control-label" ng-if="errors.password">{{ errors.password[0] }}</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
+        </div>
+        <br/>
+        <button type="button" class="btn btn-lg btn-success btn-block" ng-click="login()">Login</button>
+        <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="register()">Register</button>
+    </div>
 </div>

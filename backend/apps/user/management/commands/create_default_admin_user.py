@@ -6,8 +6,8 @@ class Command(BaseCommand):
     help = 'Create default admin user'
 
     def handle(self, *args, **options):
-        user, created = User.objects.get_or_create(username="admin")
-        user.email = "foo@bar.com"
+        user, created = User.objects.get_or_create(username="admin@example.com")
+        user.email = "admin@example.com"
         user.is_staff = True
         user.is_superuser = True
         user.is_active = True
