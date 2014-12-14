@@ -138,7 +138,7 @@ LOGGING = {
                 'console',
                 'sentry',
             ],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }

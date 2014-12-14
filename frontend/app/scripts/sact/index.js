@@ -29,12 +29,12 @@ angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
             controller: 'LogoutController'
         })
         .state('sact.canvas', {
-            url: '/',
+            url: '/canvas/',
             templateUrl: 'scripts/sact/partials/states/sact.canvas.html',
             controller: 'CanvasController'
         })
         .state('sact.gallery', {
-            url: '/gallery/',
+            url: '/',
             templateUrl: 'scripts/sact/partials/states/sact.gallery.html',
             controller: 'GalleryController'
         });

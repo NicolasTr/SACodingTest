@@ -27,9 +27,21 @@ angular.module('sact').service('AuthenticationService', function(localStorageSer
         return deferred.promise;
     };
 
+    var register = function(user) {
+        return $http.post(
+            '/api/users/',
+            user
+        ).then(function(response) {
+            return response.data;
+        }, function(response) {
+            throw response.data;
+        });
+    };
+
     return {
         isAuthenticated: isAuthenticated,
         login: login,
-        logout: logout
+        logout: logout,
+        register: register
     };
 });

@@ -1,6 +1,7 @@
 angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope, $state, AuthenticationService, NotificationService) {
+    $scope.isAuthenticated = AuthenticationService.isAuthenticated();
 
-    if(!AuthenticationService.isAuthenticated()) {
+    if(!$scope.isAuthenticated) {
         NotificationService.error('Canvas', 'Please login to access the canvas');
         $state.go('sact.login');
     }

@@ -6,7 +6,7 @@ angular.module('sact').controller('LoginController', function($scope, Authentica
     }
 
     $scope.login = function() {
-        AuthenticationService.login($scope.user).then(function(data) {
+        return AuthenticationService.login($scope.user).then(function(data) {
             setErrors({});
             NotificationService.success('Login', 'Login successful');
             $state.go('sact.canvas');
@@ -14,7 +14,10 @@ angular.module('sact').controller('LoginController', function($scope, Authentica
     };
 
     $scope.register = function() {
-        $scope.errors = {};
+        return AuthenticationService.register($scope.user).then(function() {
+            NotificationService.success('Registration', 'Registration successful');
+            return $scope.login();
+        }, setErrors);
     }
 
 });
