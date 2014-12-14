@@ -19,6 +19,11 @@ angular.module('sact').controller('CanvasController', function($scope) {
     }
     $scope.selectBackground(0);
 
+    $scope.clearCurrentScene = function() {
+        $scope.scenes[$scope.currentSceneIndex] = {description: '', background: {}, content: []};
+        $scope.currentScene = $scope.scenes[$scope.currentSceneIndex];
+    }
+
     $scope.onDragComplete = function(data, event) {
 
         var newContent = [];
