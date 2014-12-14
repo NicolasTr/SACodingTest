@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('app', [
-    'sact'
+    'sact',
+    'ui.bootstrap'
 ]);
 
 angular.module('app').config(function($locationProvider) {

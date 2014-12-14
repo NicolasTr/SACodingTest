@@ -10,10 +10,13 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.core.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.buttons.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.history.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.) styles/vendor.manual.css -->
-
+    <link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.css" />
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -67,11 +70,19 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/ngDraggable/ngDraggable.js"></script>
+    <script src="bower_components/pnotify/pnotify.core.js"></script>
+    <script src="bower_components/pnotify/pnotify.buttons.js"></script>
+    <script src="bower_components/pnotify/pnotify.callbacks.js"></script>
+    <script src="bower_components/pnotify/pnotify.confirm.js"></script>
+    <script src="bower_components/pnotify/pnotify.desktop.js"></script>
+    <script src="bower_components/pnotify/pnotify.history.js"></script>
+    <script src="bower_components/pnotify/pnotify.nonblock.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.manual.js -->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->

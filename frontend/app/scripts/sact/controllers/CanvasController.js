@@ -1,4 +1,4 @@
-angular.module('sact').controller('CanvasController', function($scope) {
+angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope) {
 
     $scope.scenes = [
         {description: '', background: {}, content: []},
@@ -23,6 +23,40 @@ angular.module('sact').controller('CanvasController', function($scope) {
         $scope.scenes[$scope.currentSceneIndex] = {description: '', background: {}, content: []};
         $scope.currentScene = $scope.scenes[$scope.currentSceneIndex];
     }
+
+    var isComplete = function(scene) {
+        return scene.description && scene.background && scene.content.length > 0;
+    }
+
+    $scope.preview = function() {
+        if(!isComplete($scope.scenes[0])) {
+            new PNotify({
+                title: 'Submit',
+                text: 'Please complete at least scene 1 to preview and submit',
+                type: 'error'
+            });
+            return
+        }
+
+        var nScenes;
+        for(nScenes = 1; nScenes <= $scope.scenes.length; nScenes++) {
+            if(!isComplete($scope.scenes[nScenes])) {
+                break;
+            }
+        }
+
+        var modalScope = $rootScope.$new();
+        modalScope.scenes = $scope.scenes.slice(0, nScenes);
+        $modal.open({
+            templateUrl: 'scripts/sact/partials/modal/preview.html',
+            size: 'lg',
+            scope: modalScope
+        }).result.then(function (data) {
+            alert("TODO: Submit");
+        }, function () {
+            console.log('Modal dismissed at: ' + new Date());
+        });
+    };
 
     $scope.onDragComplete = function(data, event) {
 
