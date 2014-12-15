@@ -92,6 +92,10 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         var x = event.x - scenePosition.left - 60;
         var y = event.y - scenePosition.top - 60;
         if(x >= 0 && x < 660 && y >= 0 && y < 330) {
+            if(newContent.length >= 3) {
+                NotificationService.warning('Canvas', 'This scene already contains 3 characters');
+                return;
+            }
             var positionInScene = {
                 x: x > 600 ? 600 : (x < 60 ? 60 : x),
                 y: y > 260 ? 260 : (y < 60 ? 60 : y)
