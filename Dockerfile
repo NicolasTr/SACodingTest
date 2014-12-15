@@ -23,7 +23,7 @@ RUN echo "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main" >> 
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD backend/requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt \
+RUN pip install --allow-external django-contrib-requestprovider --allow-unverified django-contrib-requestprovider -r /tmp/requirements.txt \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD frontend/package.json /srv/frontend/package.json
