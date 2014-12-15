@@ -1,7 +1,7 @@
 angular.module('sact').service('StoryService', function($http, localStorageService) {
 
     var create = function(story) {
-        return $http.get('/api/stories/', story).then(function(response) {
+        return $http.post('/api/stories/', story).then(function(response) {
             return response.data;
         }, function(response) {
             throw response.data;
@@ -27,10 +27,10 @@ angular.module('sact').service('StoryService', function($http, localStorageServi
             return draft;
         } else {
             return [
-                {description: '', background: {}, content: []},
-                {description: '', background: {}, content: []},
-                {description: '', background: {}, content: []},
-                {description: '', background: {}, content: []}
+                {description: '', background: {}, positions: []},
+                {description: '', background: {}, positions: []},
+                {description: '', background: {}, positions: []},
+                {description: '', background: {}, positions: []}
             ];
         }
     }

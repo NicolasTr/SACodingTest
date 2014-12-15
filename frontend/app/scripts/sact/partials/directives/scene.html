@@ -4,7 +4,7 @@
         {{ scene.description }}
     </div>
 
-    <img ng-repeat="characterWithPosition in scene.content"
+    <img ng-repeat="characterWithPosition in scene.positions"
          src="{{ characterWithPosition.character.url }}"
          ng-drag="{{ drag }}"
          ng-drag-data="characterWithPosition.character"

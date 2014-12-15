@@ -27,17 +27,17 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
 
     $scope.clearCurrentScene = function() {
         console.log('clearCurrentScene');
-        $scope.scenes[$scope.currentSceneIndex] = {description: '', background: {}, content: []};
+        $scope.scenes[$scope.currentSceneIndex] = {description: '', background: {}, positions: []};
         $scope.currentScene = $scope.scenes[$scope.currentSceneIndex];
         save();
     }
 
     var isComplete = function(scene) {
-        return scene.description && scene.background && scene.content.length > 0;
+        return scene.description && scene.background && scene.positions.length > 0;
     }
 
     var isEmpty = function(scene) {
-        return !scene.description && !scene.background && scene.content.length == 0;
+        return !scene.description && !scene.background && scene.positions.length == 0;
     }
 
     $scope.preview = function() {
@@ -64,8 +64,11 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
             size: 'lg',
             scope: modalScope
         }).result.then(function (data) {
-            StoryService.create(data).then(function(data){
-
+            var story = {
+                scenes: data
+            }
+            StoryService.create(story).then(function(data){
+                NotificationService.error('Submit', 'Story submitted');
             }, function(errors) {
                 NotificationService.error('Submit', 'An error occurred when submitting your story');
             });
@@ -75,7 +78,7 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
     $scope.onDragComplete = function(data, event) {
 
         var newContent = [];
-        $scope.currentScene.content.forEach(function(item) {
+        $scope.currentScene.positions.forEach(function(item) {
             if(item.character.id != data.id) {
                 newContent.push(item);
             }
@@ -95,7 +98,7 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
             });
         }
 
-        $scope.currentScene.content = newContent;
+        $scope.currentScene.positions = newContent;
         save();
     };
 
