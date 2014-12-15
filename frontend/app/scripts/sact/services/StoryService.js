@@ -54,10 +54,15 @@ angular.module('sact').service('StoryService', function($http, localStorageServi
         }
     }
 
+    var clearDraft = function() {
+        localStorageService.remove(key);
+    }
+
     return {
         create: create,
         list: list,
         saveDraft: saveDraft,
-        getDraft: getDraft
+        getDraft: getDraft,
+        clearDraft: clearDraft
     };
 });

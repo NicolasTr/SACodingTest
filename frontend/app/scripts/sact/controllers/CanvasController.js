@@ -69,6 +69,8 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
             }
             StoryService.create(story).then(function(data){
                 NotificationService.success('Submit', 'Story submitted');
+                StoryService.clearDraft();
+                $state.go('sact.gallery');
             }, function(errors) {
                 NotificationService.error('Submit', 'An error occurred when submitting your story');
             });
