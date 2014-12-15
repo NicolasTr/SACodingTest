@@ -36,6 +36,10 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         return scene.description && scene.background && scene.content.length > 0;
     }
 
+    var isEmpty = function(scene) {
+        return !scene.description && !scene.background && scene.content.length == 0;
+    }
+
     $scope.preview = function() {
         if(!isComplete($scope.scenes[0])) {
             NotificationService.error('Submit', 'Please complete at least scene 1 to preview and submit');
@@ -45,6 +49,9 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         var nScenes;
         for(nScenes = 1; nScenes <= $scope.scenes.length; nScenes++) {
             if(!isComplete($scope.scenes[nScenes])) {
+                if(!isEmpty($scope.scenes[nScenes])) {
+                    NotificationService.error('Submit', 'Scene ' + (nScenes+1) + ' is incomplete');
+                }
                 break;
             }
         }
