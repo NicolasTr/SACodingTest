@@ -18,6 +18,7 @@ angular.module('sact').service('NotificationService', function() {
 
     return {
         success: function(title, message){ notify(title, message, 'success')},
+        warning: function(title, message){ notify(title, message, 'warning')},
         error: function(title, message){ notify(title, message, 'error')}
     };
 });

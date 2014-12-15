@@ -26,7 +26,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'django_extensions',
-    'raven.contrib.django.raven_compat',
+    #'raven.contrib.django.raven_compat',
     'rest_framework',
 
     'apps.user',
@@ -99,7 +99,7 @@ USE_TZ = True
 STATIC_URL = '/static/' if not DEBUG else '/admin/static/'
 STATIC_ROOT = '/srv/frontend/dist/static/'
 
-LOGGING = {
+LOGGING2 = {
     'version': 1,
     'disable_existing_loggers': False,
 
@@ -137,7 +137,7 @@ LOGGING = {
         '': {
             'handlers': [
                 'console',
-                'sentry',
+                #'sentry',
             ],
             'level': 'DEBUG',
             'propagate': True,

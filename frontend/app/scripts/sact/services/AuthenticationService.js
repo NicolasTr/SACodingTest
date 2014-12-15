@@ -37,10 +37,15 @@ angular.module('sact').service('AuthenticationService', function(localStorageSer
         });
     };
 
+    var getToken = function() {
+        return localStorageService.get(key);
+    }
+
     return {
         isAuthenticated: isAuthenticated,
         login: login,
         logout: logout,
-        register: register
+        register: register,
+        getToken: getToken
     };
 });

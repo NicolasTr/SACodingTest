@@ -5,7 +5,7 @@ angular.module('sact').controller('GalleryController', function($scope, Authenti
     StoryService.list().then(function(stories){
         $scope.stories = stories;
     }, function(error) {
-        NotificationService.success('Gallery', 'An error occurred when retrieving the stories.');
+        NotificationService.error('Gallery', 'An error occurred when retrieving the stories.');
     })
 
     $scope.preview = function(story) {
