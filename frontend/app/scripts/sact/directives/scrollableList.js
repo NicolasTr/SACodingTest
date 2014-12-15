@@ -19,10 +19,10 @@ angular.module('sact').directive('scrollableList', function() {
             scope.$watch('items', update);
             scope.$watch('max', update);
 
-            scope.up = function() {
+            scope.down = function() {
                 scope.currentPosition += scope.currentPosition + 1 >= scope.items.length - scope.max + 1 ? 0 : 1;
             };
-            scope.down = function() {
+            scope.up = function() {
                 scope.currentPosition -= scope.currentPosition - 1 >= 0 ? 1 : 0;
             };
         }

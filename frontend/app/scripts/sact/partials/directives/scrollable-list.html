@@ -1,6 +1,6 @@
 <div>
-    <div ng-click="up()">Up</div>
-    <div ng-repeat="item in items | slice:currentPosition:currentPosition+max">
+    <div ng-click="up()" class="up" ng-class="{active: currentPosition > 0}"></div>
+    <div ng-repeat="item in items | slice:currentPosition:currentPosition+max" class="item-wrapper">
         <img
                 ng-click="clickHandler(item)"
                 ng-if="clickHandler"
@@ -13,5 +13,5 @@
                 ng-drag-success="onDragComplete($data, $event)"
                 src="{{ item.url }}"/>
     </div>
-    <div ng-click="down()">Down</div>
+    <div ng-click="down()" class="down" ng-class="{active: currentPosition < items.length - max}"></div>
 </div>
