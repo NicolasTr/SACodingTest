@@ -3,7 +3,6 @@ angular.module('sact').service('AuthenticationService', function(localStorageSer
     var key = 'authenticationToken';
     var isAuthenticated = function() {
         var value = localStorageService.get(key) != null;
-        console.log('isAuthenticated', value);
         return value;
     };
 

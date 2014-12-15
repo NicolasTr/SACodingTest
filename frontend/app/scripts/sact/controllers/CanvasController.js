@@ -1,4 +1,4 @@
-angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope, $state, AuthenticationService, NotificationService) {
+angular.module('sact').controller('CanvasController', function($scope, $modal, $rootScope, $state, AuthenticationService, NotificationService, StoryService) {
     $scope.isAuthenticated = AuthenticationService.isAuthenticated();
 
     if(!$scope.isAuthenticated) {
@@ -6,28 +6,30 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         $state.go('sact.login');
     }
 
-    $scope.scenes = [
-        {description: '', background: {}, content: []},
-        {description: '', background: {}, content: []},
-        {description: '', background: {}, content: []},
-        {description: '', background: {}, content: []}
-    ]
+    $scope.scenes = StoryService.getDraft();
+    var save = function() {
+        StoryService.saveDraft($scope.scenes);
+    }
+
+    $scope.$watch('currentScene.description', save);
+
     $scope.selectScene = function(index) {
-        console.log('selectScene', index);
         $scope.currentSceneIndex = index;
         $scope.currentScene = $scope.scenes[index];
     }
     $scope.selectScene(0);
 
     $scope.selectBackground = function(background) {
-        console.log('selectBackground', background.id);
         $scope.currentScene.background = background;
+        console.log('selectBackground');
+        save();
     }
-    $scope.selectBackground(0);
 
     $scope.clearCurrentScene = function() {
+        console.log('clearCurrentScene');
         $scope.scenes[$scope.currentSceneIndex] = {description: '', background: {}, content: []};
         $scope.currentScene = $scope.scenes[$scope.currentSceneIndex];
+        save();
     }
 
     var isComplete = function(scene) {
@@ -54,9 +56,11 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
             size: 'lg',
             scope: modalScope
         }).result.then(function (data) {
-            alert("TODO: Submit");
-        }, function () {
-            console.log('Modal dismissed at: ' + new Date());
+            StoryService.create(data).then(function(data){
+
+            }, function(errors) {
+                NotificationService.error('Submit', 'An error occurred when submitting your story');
+            });
         });
     };
 
@@ -84,6 +88,7 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         }
 
         $scope.currentScene.content = newContent;
+        save();
     };
 
     $scope.backgrounds = [

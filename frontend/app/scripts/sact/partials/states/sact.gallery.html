@@ -3,4 +3,10 @@
     <a class="logout" ui-sref="sact.login" ng-if="!isAuthenticated">Login</a>
 
     <div class="page-title">Gallery</div>
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="story in stories| orderBy:story.id:reverse">
+            Story #{{ story.id }} by {{ story.user.username }}
+        </li>
+    </ul>
 </div>

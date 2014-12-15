@@ -42,6 +42,7 @@ angular.module('sact').config(function($urlRouterProvider, $stateProvider) {
 
 angular.module('sact').config(function (localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('sact');
+    //localStorageServiceProvider.setStorageType('sessionStorage');
 });
 
 angular.module('sact').run(function ($rootScope, $state) {
