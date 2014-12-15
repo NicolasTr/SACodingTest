@@ -74,12 +74,12 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
         });
 
         var scenePosition = $('#mainScene').offset();
-        var x = event.x - scenePosition.left;
-        var y = event.y - scenePosition.top;
+        var x = event.x - scenePosition.left - 60;
+        var y = event.y - scenePosition.top - 60;
         if(x >= 0 && x < 660 && y >= 0 && y < 330) {
             var positionInScene = {
-                x: x > 540 ? 540 : x,
-                y: y > 200 ? 200 : y
+                x: x > 600 ? 600 : (x < 60 ? 60 : x),
+                y: y > 260 ? 260 : (y < 60 ? 60 : y)
             }
             newContent.push({
                 position: positionInScene,
