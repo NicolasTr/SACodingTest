@@ -51,6 +51,7 @@ angular.module('sact').controller('CanvasController', function($scope, $modal, $
 
         var modalScope = $rootScope.$new();
         modalScope.scenes = $scope.scenes.slice(0, nScenes);
+        modalScope.allowSubmit = true;
         $modal.open({
             templateUrl: 'scripts/sact/partials/modal/preview.html',
             size: 'lg',

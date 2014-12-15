@@ -6,6 +6,7 @@
 
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="story in stories| orderBy:story.id:reverse">
+            <button class="btn btn-primary" ng-click="preview(story)">Preview</button>
             Story #{{ story.id }} by {{ story.user.username }}
         </li>
     </ul>
